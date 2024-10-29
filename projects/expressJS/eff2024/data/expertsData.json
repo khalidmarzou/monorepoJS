@@ -1,1 +1,32 @@
-[{"id":3,"nom_complet":"LECLERC Paul","evenements":[{"id":1,"theme":"Sécurité Informatique","date_debut":"2024-06-01","date_fin":"2024-06-05","description":"Initiation à la sécurité informatique","cout_journalier":550,"duree":5}]},{"id":4,"nom_complet":"DURAND Marie","evenements":[{"id":1,"theme":"Gestion de Projet","date_debut":"2024-07-01","date_fin":"2024-07-04","description":"Gestion et planification de projets","cout_journalier":450,"duree":4}]}]
+[
+  {
+    "id": 3,
+    "nom_complet": "LECLERC Paul",
+    "evenements": [
+      {
+        "id": 1,
+        "theme": "Sécurité Informatique",
+        "date_debut": "2024-06-01",
+        "date_fin": "2024-06-05",
+        "description": "Initiation à la sécurité informatique",
+        "cout_journalier": 550,
+        "duree": 5
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "nom_complet": "DURAND Marie",
+    "evenements": [
+      {
+        "id": 1,
+        "theme": "Gestion de Projet",
+        "date_debut": "2024-07-01",
+        "date_fin": "2024-07-04",
+        "description": "Gestion et planification de projets",
+        "cout_journalier": 450,
+        "duree": 4
+      }
+    ]
+  }
+]

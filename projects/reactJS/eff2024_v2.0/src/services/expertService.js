@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000"; // Base URL for your Express API
+const API_URL = "http://localhost:3000";
 
 // Get all experts
 export const getAllExperts = async () => {

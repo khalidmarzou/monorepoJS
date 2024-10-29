@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Table from "./Table";
 
 class Welcome extends Component {
   constructor(props) {
@@ -11,6 +12,18 @@ class Welcome extends Component {
       },
       students: [],
     };
+  }
+
+  componentDidMount() {
+    console.log("Welcome component rendered");
+  }
+
+  componentDidUpdate() {
+    console.log("component Welcome is updated");
+  }
+
+  componentWillUnmount() {
+    console.log("Welcome component unmounted");
   }
 
   handleInputChange = (event) => {
@@ -35,64 +48,52 @@ class Welcome extends Component {
 
   render() {
     return (
-      <div className="flex flex-col items-center justify-start min-h-screen bg-gray-100 py-10">
-        <input
-          type="number"
-          placeholder="Enter your id"
-          name="id"
-          value={this.state.student.id}
-          onChange={this.handleInputChange}
-          className="mb-4 p-2 border rounded shadow w-96"
-          required
-        />
-        <input
-          type="text"
-          placeholder="Enter your first name"
-          name="firstName"
-          value={this.state.student.firstName}
-          onChange={this.handleInputChange}
-          className="mb-4 p-2 border rounded shadow w-96"
-          required
-        />
-        <input
-          type="text"
-          placeholder="Enter your last name"
-          name="lastName"
-          value={this.state.student.lastName}
-          onChange={this.handleInputChange}
-          className="mb-4 p-2 border rounded shadow w-96"
-          required
-        />
-        <button onClick={this.handleButtonClick} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">
-          Add
-        </button>
-        <div className="relative overflow-x-auto">
-          <table className="w-96 mt-6 text-sm text-left text-gray-500">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50">
-              <tr>
-                <th scope="col" className="px-6 py-3">
-                  ID
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  First Name
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Last Name
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.students.map((item, index) => (
-                <tr key={index} className="bg-white border-b">
-                  <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                    {item.id}
-                  </th>
-                  <td className="px-6 py-4">{item.firstName}</td>
-                  <td className="px-6 py-4">{item.lastName}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      <div className="flex flex-col items-center justify-start min-h-screen bg-gradient-to-r from-blue-100 to-blue-300 py-10">
+        <h1 className="text-3xl font-bold mb-6 text-gray-800">Student Registration</h1>
+        <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-5xl">
+          <input
+            min={1}
+            max={10}
+            type="number"
+            placeholder="Enter your ID"
+            name="id"
+            value={this.state.student.id}
+            onChange={this.handleInputChange}
+            className="mb-4 p-2 border border-gray-300 rounded shadow w-full"
+            required
+            tabIndex={1}
+          />
+          <input
+            type="text"
+            placeholder="Enter your first name"
+            name="firstName"
+            value={this.state.student.firstName}
+            onChange={this.handleInputChange}
+            className="mb-4 p-2 border border-gray-300 rounded shadow w-full"
+            required
+            tabIndex={2}
+          />
+          <input
+            type="text"
+            placeholder="Enter your last name"
+            name="lastName"
+            value={this.state.student.lastName}
+            onChange={this.handleInputChange}
+            className="mb-4 p-2 border border-gray-300 rounded shadow w-full"
+            required
+            tabIndex={3}
+          />
+          <button
+            onClick={this.handleButtonClick}
+            className="w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition duration-300 ease-in-out"
+            tabIndex={4}
+          >
+            Add Student
+          </button>
+        </div>
+
+        <div className="relative overflow-x-auto mt-6 w-full max-w-5xl">
+          {this.state.students.length < 5 && <Table students={this.state.students} />}
         </div>
       </div>
     );

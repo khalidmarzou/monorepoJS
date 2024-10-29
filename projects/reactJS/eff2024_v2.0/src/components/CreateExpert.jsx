@@ -1,4 +1,3 @@
-// src/components/CreateExpert.js
 import React, { useState } from "react";
 import { createExpert } from "../services/expertService";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +9,7 @@ const CreateExpert = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await createExpert({ name });
-    navigate("/"); // Redirect to the experts list after creation
+    navigate("/");
   };
 
   return (
