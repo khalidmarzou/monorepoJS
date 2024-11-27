@@ -5,23 +5,21 @@ import axios from "axios";
 function CountryCityDropdown() {
   const [selectedCountryId, setSelectedCountryId] = useState(null);
 
-  // Fetch countries :
   const {
     data: countries,
     isLoading: isLoadingCountries,
     error: countriesError,
   } = useQuery({
-    queryKey: ["fetchCountries"],
+    queryKey: ["countriesList"],
     queryFn: fetchCountries,
   });
 
-  // Fetch cities :
   const {
     data: cities,
     isLoading: isLoadingCities,
     error: citiesError,
   } = useQuery({
-    queryKey: ["fetchCities", selectedCountryId],
+    queryKey: ["citiesList", selectedCountryId],
     queryFn: () => fetchCities(selectedCountryId),
     enabled: !!selectedCountryId,
   });
@@ -64,7 +62,7 @@ function CountryCityDropdown() {
           className="mt-2 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
         >
           {!selectedCountryId && <option value="">Select Country First</option>}
-          {isLoadingCities && <option className="">Loading cities...</option>}
+          {isLoadingCities && <option>Loading cities...</option>}
           {citiesError && <option>Error loading cities</option>}
           {cities &&
             cities.map((city) => (
